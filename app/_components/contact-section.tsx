@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, type FormEvent } from "react";
+import { useState, useCallback, useRef, useEffect, type FormEvent } from "react";
 import { Send } from "lucide-react";
 
 interface FormErrors {
@@ -16,6 +16,14 @@ export function ContactSection() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const timersRef = useRef<number[]>([]);
+
+  // Clean up timers on unmount
+  useEffect(() => {
+    return () => {
+      timersRef.current.forEach((id) => clearTimeout(id));
+    };
+  }, []);
 
   const validate = useCallback((): FormErrors => {
     const newErrors: FormErrors = {};
@@ -44,7 +52,7 @@ export function ContactSection() {
       setErrors({});
 
       // Simulate submission
-      setTimeout(() => {
+      const submitTimer = window.setTimeout(() => {
         setIsSubmitting(false);
         setIsSuccess(true);
         setName("");
@@ -52,8 +60,10 @@ export function ContactSection() {
         setMessage("");
 
         // Hide success message after 5 seconds
-        setTimeout(() => setIsSuccess(false), 5000);
+        const toastTimer = window.setTimeout(() => setIsSuccess(false), 5000);
+        timersRef.current.push(toastTimer);
       }, 800);
+      timersRef.current.push(submitTimer);
     },
     [isSubmitting, validate]
   );
@@ -90,10 +100,12 @@ export function ContactSection() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
+              aria-invalid={errors.name ? "true" : undefined}
+              aria-describedby={errors.name ? "name-error" : undefined}
               className="glass h-11 rounded-lg px-4 text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-[var(--color-primary)]"
             />
             {errors.name && (
-              <p className="text-xs text-red-400">{errors.name}</p>
+              <p id="name-error" className="text-xs text-red-400" role="alert">{errors.name}</p>
             )}
           </div>
 
@@ -108,10 +120,12 @@ export function ContactSection() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@email.com"
+              aria-invalid={errors.email ? "true" : undefined}
+              aria-describedby={errors.email ? "email-error" : undefined}
               className="glass h-11 rounded-lg px-4 text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-[var(--color-primary)]"
             />
             {errors.email && (
-              <p className="text-xs text-red-400">{errors.email}</p>
+              <p id="email-error" className="text-xs text-red-400" role="alert">{errors.email}</p>
             )}
           </div>
 
@@ -126,10 +140,12 @@ export function ContactSection() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Your message..."
               rows={5}
+              aria-invalid={errors.message ? "true" : undefined}
+              aria-describedby={errors.message ? "message-error" : undefined}
               className="glass rounded-lg px-4 py-3 text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-[var(--color-primary)]"
             />
             {errors.message && (
-              <p className="text-xs text-red-400">{errors.message}</p>
+              <p id="message-error" className="text-xs text-red-400" role="alert">{errors.message}</p>
             )}
           </div>
 

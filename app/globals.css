@@ -193,23 +193,8 @@ body {
   }
 }
 
-@keyframes toast-out {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(1rem);
-  }
-}
-
 .toast-enter {
   animation: toast-in 0.3s ease-out;
-}
-
-.toast-exit {
-  animation: toast-out 0.3s ease-in forwards;
 }
 
 /* Reduced motion */
@@ -219,5 +204,14 @@ body {
   .aurora-blob-1,
   .aurora-blob-2 {
     animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -4,7 +4,7 @@ import { useThemeContext } from "./theme-provider";
 import { themes } from "@/lib/themes";
 
 export function ThemeSelector() {
-  const { palette, setPalette, mounted } = useThemeContext();
+  const { palette, setPalette, mounted, mode } = useThemeContext();
 
   if (!mounted) {
     return <div className="h-8" />;
@@ -13,7 +13,7 @@ export function ThemeSelector() {
   return (
     <div className="flex items-center gap-2">
       {themes.map((theme) => {
-        const colors = theme.light;
+        const colors = mode === "dark" ? theme.dark : theme.light;
         const isActive = palette.slug === theme.slug;
 
         return (

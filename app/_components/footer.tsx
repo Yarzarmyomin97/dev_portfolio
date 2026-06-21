@@ -20,12 +20,12 @@ export function Footer({ copyright, socialLinks }: FooterProps) {
         <div className="flex gap-4">
           {socialLinks.map((link) => {
             const Icon = iconMap[link.icon ?? ""] ?? Mail;
+            const isMailto = link.url.startsWith("mailto:");
             return (
               <a
                 key={link.platform}
                 href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(isMailto ? {} : { target: "_blank", rel: "noopener noreferrer" })}
                 aria-label={link.platform}
                 className="inline-flex cursor-pointer items-center gap-2 text-sm font-medium text-[var(--color-primary)] transition-all duration-200 hover:underline focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
               >
