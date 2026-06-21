@@ -27,16 +27,16 @@ export function DotIndicator({ sections }: DotIndicatorProps) {
       className="fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 flex-col items-center gap-4 sm:flex"
     >
       {/* Section dots */}
-      <div className="flex flex-col items-center gap-3 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-lg">
+      <div className="glass flex flex-col items-center gap-3 rounded-full p-2 shadow-lg">
         {sections.map((section) => (
           <button
             key={section.id}
             onClick={() => handleClick(section.id)}
             aria-label={`Go to ${section.label}`}
             aria-current={activeSection === section.id ? "true" : undefined}
-            className={`h-3 w-3 rounded-full transition-all ${
+            className={`h-3 w-3 cursor-pointer rounded-full transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 ${
               activeSection === section.id
-                ? "scale-125 bg-[var(--color-primary)]"
+                ? "scale-125 bg-[var(--color-primary)] shadow-[0_0_8px_var(--color-primary)]"
                 : "bg-[var(--color-border)] hover:bg-[var(--color-primary)] hover:opacity-60"
             }`}
           />
@@ -44,7 +44,7 @@ export function DotIndicator({ sections }: DotIndicatorProps) {
       </div>
 
       {/* Theme controls */}
-      <div className="flex flex-col items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] p-2 shadow-lg">
+      <div className="glass flex flex-col items-center gap-2 rounded-full p-2 shadow-lg">
         <ThemeToggle />
         <div className="h-px w-4 bg-[var(--color-border)]" />
         <ThemeSelector />

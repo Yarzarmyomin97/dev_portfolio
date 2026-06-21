@@ -5,16 +5,20 @@ export interface Project {
   technologies: string[];
   demoUrl: string | null;
   sourceUrl: string | null;
+  playstoreUrl?: string | null;
+  appstoreUrl?: string | null;
   imagePlaceholder: string;
 }
 
 export interface Experience {
   id: string;
   company: string;
+  companyUrl?: string | null;
   title: string;
   startDate: string;
   endDate: string | null;
   accomplishments: string[];
+  skills?: string[];
 }
 
 export interface ThemeColors {

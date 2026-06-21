@@ -6,6 +6,22 @@ import { themes, defaultTheme } from "@/lib/themes";
 
 const STORAGE_KEY = "portfolio-theme";
 
+// Gradient mesh colors per palette
+const gradientColors: Record<string, { light: string[]; dark: string[] }> = {
+  aurora: {
+    light: ["#C084FC", "#818CF8", "#67E8F9", "#F9A8D4"],
+    dark: ["#4C1D95", "#5B21B6", "#0E7490", "#9D174D"],
+  },
+  sunset: {
+    light: ["#FDBA74", "#FCA5A5", "#FDE68A", "#F9A8D4"],
+    dark: ["#7C2D12", "#991B1B", "#92400E", "#831843"],
+  },
+  ocean: {
+    light: ["#7DD3FC", "#6EE7B7", "#A5F3FC", "#99F6E4"],
+    dark: ["#0C4A6E", "#064E3B", "#164E63", "#134E4A"],
+  },
+};
+
 // Always return the same default on server AND initial client render
 function getDefaultPreference(): ThemePreference {
   return { mode: "light", palette: defaultTheme.slug };
@@ -39,7 +55,7 @@ function applyThemeToDocument(
   const colors = mode === "dark" ? palette.dark : palette.light;
   const root = document.documentElement;
 
-  root.setAttribute("data-theme", `${palette.slug}-${mode}`);
+  root.setAttribute("data-theme", mode);
   root.style.setProperty("--color-primary", colors.primary);
   root.style.setProperty("--color-secondary", colors.secondary);
   root.style.setProperty("--color-accent", colors.accent);
@@ -47,6 +63,25 @@ function applyThemeToDocument(
   root.style.setProperty("--color-surface", colors.surface);
   root.style.setProperty("--color-text", colors.text);
   root.style.setProperty("--color-border", colors.border);
+
+  // Apply gradient mesh colors
+  const gradients = gradientColors[palette.slug] ?? gradientColors.aurora;
+  const gColors = mode === "dark" ? gradients.dark : gradients.light;
+  root.style.setProperty("--gradient-1", gColors[0]);
+  root.style.setProperty("--gradient-2", gColors[1]);
+  root.style.setProperty("--gradient-3", gColors[2]);
+  root.style.setProperty("--gradient-4", gColors[3]);
+
+  // Update glass properties for dark mode
+  if (mode === "dark") {
+    root.style.setProperty("--glass-bg", "rgba(15, 20, 40, 0.6)");
+    root.style.setProperty("--glass-border", "rgba(255, 255, 255, 0.1)");
+    root.style.setProperty("--glass-shadow", "0 8px 32px rgba(0, 0, 0, 0.3)");
+  } else {
+    root.style.setProperty("--glass-bg", "rgba(255, 255, 255, 0.6)");
+    root.style.setProperty("--glass-border", "rgba(255, 255, 255, 0.5)");
+    root.style.setProperty("--glass-shadow", "0 8px 32px rgba(0, 0, 0, 0.06)");
+  }
 }
 
 export function useTheme() {

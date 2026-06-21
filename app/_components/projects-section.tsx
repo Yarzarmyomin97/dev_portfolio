@@ -9,7 +9,10 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section id="projects" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-4 text-center text-3xl font-bold sm:text-4xl">
+        <h2
+          className="gradient-text mb-4 text-center text-3xl font-bold sm:text-4xl"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
           Projects
         </h2>
         <p className="mx-auto mb-12 max-w-2xl text-center opacity-70">

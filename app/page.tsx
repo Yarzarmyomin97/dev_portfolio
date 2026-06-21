@@ -3,14 +3,14 @@ import { ProjectsSection } from "./_components/projects-section";
 import { ExperienceSection } from "./_components/experience-section";
 import { AboutSection } from "./_components/about-section";
 import { ContactSection } from "./_components/contact-section";
-import { DotIndicator } from "./_components/dot-indicator";
+import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
 import { profile } from "@/lib/data/profile";
 import { projects } from "@/lib/data/projects";
 import { experiences } from "@/lib/data/experience";
 
 const sections = [
-  { id: "hero", label: "Hero" },
+  { id: "hero", label: "Home" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
   { id: "about", label: "About" },
@@ -20,8 +20,8 @@ const sections = [
 export default function Home() {
   return (
     <>
-      <DotIndicator sections={sections} />
-      <main>
+      <Header sections={sections} />
+      <main className="pt-16">
         <HeroSection
           name={profile.name}
           title={profile.title}

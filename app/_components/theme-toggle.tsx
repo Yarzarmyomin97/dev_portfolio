@@ -1,15 +1,15 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import { useThemeContext } from "./theme-provider";
 
 export function ThemeToggle() {
   const { mode, toggleMode, mounted } = useThemeContext();
 
-  // Render consistent placeholder until hydrated
   if (!mounted) {
     return (
       <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)]">
-        <span className="text-sm">🌙</span>
+        <Moon size={16} className="opacity-60" />
       </div>
     );
   }
@@ -18,9 +18,9 @@ export function ThemeToggle() {
     <button
       onClick={toggleMode}
       aria-label={`Switch to ${mode === "light" ? "dark" : "light"} mode`}
-      className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-sm transition-colors hover:bg-[var(--color-border)]"
+      className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] transition-all duration-200 hover:bg-[var(--color-border)] focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
     >
-      {mode === "light" ? "🌙" : "☀️"}
+      {mode === "light" ? <Moon size={16} /> : <Sun size={16} />}
     </button>
   );
 }
