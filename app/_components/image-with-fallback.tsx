@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 
 interface ImageWithFallbackProps {
@@ -26,10 +26,10 @@ export function ImageWithFallback({
 }: ImageWithFallbackProps) {
   const [imgSrc, setImgSrc] = useState(src);
 
-  // Sync when parent passes a new src prop
-  useEffect(() => {
+  // Reset state when src prop changes
+  if (imgSrc !== src && imgSrc !== fallbackSrc) {
     setImgSrc(src);
-  }, [src]);
+  }
 
   return (
     <Image

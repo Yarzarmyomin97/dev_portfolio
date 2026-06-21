@@ -20,8 +20,9 @@ export function ContactSection() {
 
   // Clean up timers on unmount
   useEffect(() => {
+    const timers = timersRef.current;
     return () => {
-      timersRef.current.forEach((id) => clearTimeout(id));
+      timers.forEach((id) => clearTimeout(id));
     };
   }, []);
 
