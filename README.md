@@ -2,6 +2,12 @@
 
 A modern, single-page developer portfolio built with Next.js 16, React 19, and Tailwind CSS 4. Features a glassmorphism design system with an animated aurora gradient mesh background, three switchable color palettes, and light/dark mode support.
 
+<p align="center">
+  <a href="https://yarzarmyomin.vercel.app/">
+    <img src="public/images/hero.png" alt="Portfolio Website" width="800">
+  </a>
+</p>
+
 ## Tech Stack
 
 - **Framework:** Next.js 16 (App Router)
@@ -21,6 +27,16 @@ A modern, single-page developer portfolio built with Next.js 16, React 19, and T
 - **Responsive layout** — mobile-first grid that adapts from 1 to 3 columns
 - **Image fallbacks** — `ImageWithFallback` component wraps `next/image` with SVG placeholder fallback
 - **Reduced motion support** — animations respect `prefers-reduced-motion`
+
+## Screenshots
+
+| Hero | Projects |
+|------|----------|
+| ![Hero](public/images/hero.png) | ![Projects](public/images/project.png) |
+
+| Experience | About | Contact |
+|------------|-------|---------|
+| ![Experience](public/images/experience.png) | ![About](public/images/about.png) | ![Contact](public/images/contact.png) |
 
 ## Getting Started
 
