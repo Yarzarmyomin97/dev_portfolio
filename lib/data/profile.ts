@@ -4,7 +4,7 @@ export const profile = {
   name: "Yar Zar Myo Min",
   title: "Flutter Developer | Mobile Application Developer",
   tagline: "Building reliable, user-focused mobile applications with Flutter",
-  bio: "I'm a a dedicated and innovative Mobile Application Developer with 7+ years of experience in designing, implementing, and maintaining cross-platform mobile applications. Proficient in utilizing Flutter framework to create smooth, responsive, and visually appealing user interfaces. Seeking to leverage expertise in mobile app development to contribute effectively to a dynamic team. Skilled in Flutter, Dart, Ionic, Android, iOS, Java, C#, Software Development and Mobile Applications.",
+  bio: "I'm a dedicated and innovative Mobile Application Developer with 7+ years of experience in designing, implementing, and maintaining cross-platform mobile applications. Proficient in utilizing Flutter framework to create smooth, responsive, and visually appealing user interfaces. Seeking to leverage expertise in mobile app development to contribute effectively to a dynamic team. Skilled in Flutter, Dart, Ionic, Android, iOS, Java, C#, Software Development and Mobile Applications.",
   skills: [
     "Flutter",
     "Dart",
