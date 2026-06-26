@@ -12,7 +12,7 @@ A modern, single-page developer portfolio built with Next.js 16, React 19, and T
 ## 📸 Preview
 
 <p align="center">
-  <img src="screenshots/portfolio-full.png" alt="Portfolio Preview" width="800">
+  <img src="screenshots/desktop-hero.png" alt="Portfolio Preview" width="800">
 </p>
 
 ## ✨ Features
