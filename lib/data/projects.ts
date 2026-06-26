@@ -41,7 +41,7 @@ export const projects: Project[] = [
     description:
       "A responsive portfolio website using Claude Code",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Shadcn/ui", "Framer Motion"],
-    demoUrl: null,
+    demoUrl: "https://yarzarmyomin.vercel.app",
     sourceUrl: null,
     imagePlaceholder: "/images/portfolio-next.png",
   },
