@@ -1,5 +1,5 @@
 import type { SocialLink } from "@/lib/types";
-import { Globe, Link, Mail, ArrowUp } from "lucide-react";
+import { Globe, Link, Mail } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   github: Globe,
@@ -35,15 +35,6 @@ export function Footer({ copyright, socialLinks }: FooterProps) {
             );
           })}
         </div>
-
-        {/* Back to top */}
-        <a
-          href="#hero"
-          className="inline-flex cursor-pointer items-center gap-1.5 text-sm opacity-60 transition-all duration-200 hover:opacity-100 focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
-        >
-          <ArrowUp size={14} />
-          Back to Top
-        </a>
 
         {/* Copyright */}
         <p className="text-xs opacity-40">{copyright}</p>
