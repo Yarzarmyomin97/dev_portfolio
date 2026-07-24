@@ -4,6 +4,7 @@ import { ExperienceSection } from "./_components/experience-section";
 import { AboutSection } from "./_components/about-section";
 import { ContactSection } from "./_components/contact-section";
 import { Header } from "./_components/header";
+import { BackToTop } from "./_components/back-to-top";
 import { Footer } from "./_components/footer";
 import { profile } from "@/lib/data/profile";
 import { projects } from "@/lib/data/projects";
@@ -38,6 +39,7 @@ export default function Home() {
         />
         <ContactSection />
       </main>
+      <BackToTop />
       <Footer
         copyright={profile.copyright}
         socialLinks={profile.socialLinks}
