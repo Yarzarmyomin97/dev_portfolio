@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef, useEffect, type FormEvent } from "react";
 import { Send } from "lucide-react";
+import { track } from "@vercel/analytics";
 
 interface FormErrors {
   name?: string;
@@ -56,6 +57,7 @@ export function ContactSection() {
       const submitTimer = window.setTimeout(() => {
         setIsSubmitting(false);
         setIsSuccess(true);
+        track("contact_submission", {});
         setName("");
         setEmail("");
         setMessage("");

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./_components/theme-provider";
+import { AnalyticsTracker } from "./_components/analytics-tracker";
 import { profile } from "@/lib/data/profile";
 
 const archivo = Archivo({
@@ -39,6 +40,7 @@ export default function RootLayout({
           <div className="aurora-blob-2" />
         </div>
         <ThemeProvider>{children}</ThemeProvider>
+        <AnalyticsTracker />
       </body>
     </html>
   );

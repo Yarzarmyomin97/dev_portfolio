@@ -7,7 +7,7 @@ then list them here. (These are what you'll close in Chapter 6.)
 |---|---|---|---|---|
 | 1 | feat: implement hamburger navigation menu for mobile viewports | [#1](https://github.com/Yarzarmyomin97/dev_portfolio/issues/1) | Interview with Yar Zar (peer review) | high |
 | 2 | feat: add floating back-to-top button that appears on scroll | [#2](https://github.com/Yarzarmyomin97/dev_portfolio/issues/2) | Interview with Yar Zar (peer review) | med |
-| 3 | feat: add visitor analytics to measure portfolio effectiveness | [#3](https://github.com/Yarzarmyomin97/dev_portfolio/issues/3) | Interview with Yar Zar (peer review) | med |
+| 3 | feat: add visitor analytics to measure portfolio effectiveness | [#3](https://github.com/Yarzarmyomin97/dev_portfolio/issues/3) — ✅ closed | Interview with Yar Zar (peer review) | med |
 
 ## Notes
 
