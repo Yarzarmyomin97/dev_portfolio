@@ -17,9 +17,59 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const SITE_URL = "https://yarzarmyomin.vercel.app";
+
+const description = "Discover my projects, technical expertise, and development journey through an interactive portfolio built with modern web technologies.";
+
 export const metadata: Metadata = {
-  title: `${profile.name} - ${profile.title}`,
-  description: `Portfolio of ${profile.name}`,
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: profile.name,
+    template: `%s | ${profile.name}`,
+  },
+  description,
+  keywords: [
+    profile.title,
+    ...profile.skills,
+  ],
+  authors: [{ name: profile.name }],
+  creator: profile.name,
+  openGraph: {
+    title: profile.name,
+    description,
+    url: SITE_URL,
+    siteName: profile.name,
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${profile.name} - ${profile.title}`,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: profile.name,
+    description,
+    images: ["/og.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
